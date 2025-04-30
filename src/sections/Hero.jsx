@@ -68,11 +68,11 @@ const Hero = () => {
             />
           </div>
         </header>
-        <figure>
+        {/* <figure>
           <div className="hero-3d-layout">
             <HeroExperience />
           </div>
-        </figure>
+        </figure> */}
       </div>
     </section>
   );
