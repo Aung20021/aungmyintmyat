@@ -34,7 +34,8 @@ const ShowcaseSection = () => {
     glow.style.background = `radial-gradient(400px circle at ${x}px ${y}px, ${hexToRgba(
       glowColor,
       0.4
-    )}, transparent 80%)`;
+    )}, transparent 60%)`;
+
     card.style.borderColor = hexToRgba(glowColor, 0.6);
   };
 
@@ -101,14 +102,14 @@ const ShowcaseSection = () => {
           >
             <div
               ref={(el) => (glowRefs.current[index] = el)}
-              className="absolute inset-0 rounded-2xl pointer-events-none"
+              className="absolute inset-0 rounded-2xl pointer-events-none z-0"
               style={{ background: "transparent" }}
             />
 
             <img
               src={project.image}
               alt="Project"
-              className="w-full h-48 object-cover transition-transform duration-300"
+              className="w-full h-48 object-cover transition-transform duration-300 relative z-10"
             />
 
             <div className="p-6">
