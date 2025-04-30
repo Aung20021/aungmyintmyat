@@ -116,14 +116,6 @@ const ShowcaseSection = () => {
             onTouchEnd={() => handleTouchEnd(index)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              type: "tween",
-              duration: 0.8,
-              ease: "easeOut", // Other options: "easeInOut", "anticipate"
-            }}
             className="relative bg-gray-900 text-white rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 group cursor-pointer"
             style={{
               border: "3px solid transparent",
