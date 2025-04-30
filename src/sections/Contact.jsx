@@ -1,53 +1,37 @@
 import { useEffect, useRef, useState } from "react";
-// import emailjs from "@emailjs/browser";
 import Spline from "@splinetool/react-spline";
+import { useMediaQuery } from "react-responsive";
 
 import TitleHeader from "../components/TitleHeader";
-import ContactExperience from "../components/Models/contact/ContactExperience";
 
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [splineLoading, setSplineLoading] = useState(true);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  const isLargeScreen = useMediaQuery({ minWidth: 1024 });
+  useEffect(() => {
+    if (!isLargeScreen) return;
+
+    fetch("https://prod.spline.design/kriu7lir0JRtdbDv/scene.splinecode", {
+      method: "GET",
+      mode: "no-cors",
+    });
+  }, [isLargeScreen]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src =
-      "https://unpkg.com/@splinetool/viewer@1.9.89/build/spline-viewer.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // setLoading(true); // Show loading state
-    // try {
-    //   await emailjs.sendForm(
-    //     import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-    //     import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-    //     formRef.current,
-    //     import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-    //   );
-    //   // Reset form and stop loading
-    //   setForm({ name: "", email: "", message: "" });
-    // } catch (error) {
-    //   console.error("EmailJS Error:", error); // Optional: show toast
-    // } finally {
-    //   setLoading(false); // Always stop loading, even on error
-    // }
+    // Optional: handle form submission
   };
 
   return (
@@ -77,7 +61,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label htmlFor="email">Your Email</label>
                   <input
@@ -90,7 +73,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label htmlFor="message">Your Message</label>
                   <textarea
@@ -118,9 +100,29 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-7 w-full h-[500px]">
-            <Spline scene="https://prod.spline.design/kriu7lir0JRtdbDv/scene.splinecode" />
-          </div>
+
+          {isLargeScreen && (
+            <div className="xl:col-span-7 w-full h-[500px] relative">
+              {/* Loader Placeholder */}
+              {splineLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black z-10 rounded-lg">
+                  <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-300 h-12 w-12"></div>
+                </div>
+              )}
+
+              {/* 3D Model */}
+              <div
+                className={`xl:col-span-7 w-full h-[550px] mt-5  transition-opacity duration-500 ${
+                  splineLoading ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                <Spline
+                  scene="https://prod.spline.design/kriu7lir0JRtdbDv/scene.splinecode"
+                  onLoad={() => setSplineLoading(false)}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

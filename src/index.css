@@ -80,10 +80,6 @@ section {
     @apply grid grid-cols-1 xl:grid-cols-12 gap-10;
   }
 
-  .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
-  }
-
   .hero-text {
     @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
     img {
@@ -96,10 +92,6 @@ section {
 
   .hero-badge {
     @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
-  }
-
-  .hero-3d-layout {
-    @apply xl:w-[50%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
   }
 
   .navbar {
@@ -151,6 +143,16 @@ section {
           @apply group-hover:text-white transition-colors duration-300;
         }
       }
+    }
+  }
+  .loader {
+    border-top-color: #6366f1; /* Tailwind indigo-500 */
+    animation: spinner 0.6s linear infinite;
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
     }
   }
 

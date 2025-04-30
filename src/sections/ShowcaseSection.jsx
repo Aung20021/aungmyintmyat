@@ -64,7 +64,7 @@ const ShowcaseSection = () => {
   };
 
   return (
-    <div id="work" className="mt-20 px-4 sm:px-6 lg:px-20">
+    <div id="work" className=" px-4 sm:px-6 lg:px-20">
       <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-10 text-center">
         My Recent Projects
       </h1>
