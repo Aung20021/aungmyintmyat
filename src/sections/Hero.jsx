@@ -31,7 +31,7 @@ const Hero = () => {
     <div
       className={`flex flex-col lg:flex-row items-center justify-between
                 mb-20 px-5 md:px-10 xl:px-20
-                mt-[25%] sm:mt-[8vh] md:mt-[8vh] lg:mt-[8vh] xl:mt-[8vh] 2xl:mt-[8vh]`}
+                mt-[10vh] sm:mt-[14vh] md:mt-[18vh] lg:mt-[12vh] xl:mt-[14vh] 2xl:mt-[16vh]`}
     >
       <header className="w-full lg:w-1/2 max-w-[700px]">
         <div className="flex flex-col gap-7">
@@ -56,7 +56,7 @@ const Hero = () => {
                 </span>
               </span>
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight font-bold mb-2">
               into Real Projects
             </h1>
             <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
