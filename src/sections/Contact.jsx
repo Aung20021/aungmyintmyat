@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import emailjs from "@emailjs/browser";
+import Spline from "@splinetool/react-spline";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/Models/contact/ContactExperience";
@@ -18,6 +19,18 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src =
+      "https://unpkg.com/@splinetool/viewer@1.9.89/build/spline-viewer.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   const handleSubmit = async (e) => {
     // e.preventDefault();
     // setLoading(true); // Show loading state
@@ -105,10 +118,8 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
-            </div>
+          <div className="xl:col-span-7 w-full h-[500px]">
+            <Spline scene="https://prod.spline.design/kriu7lir0JRtdbDv/scene.splinecode" />
           </div>
         </div>
       </div>
