@@ -277,6 +277,12 @@ const projects = [
   },
   // Add more projects here
 ];
+
+const loadingMessages = [
+  "Preparing a 3D scene just for you...",
+  "Hang tight — magic is happening behind the scenes.",
+  "The 3D model of this image is loading...",
+];
 export {
   words,
   abilities,
@@ -288,4 +294,5 @@ export {
   techStackImgs,
   navLinks,
   projects,
+  loadingMessages,
 };

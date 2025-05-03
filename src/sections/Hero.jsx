@@ -1,12 +1,14 @@
 import React from "react";
-import { words } from "../constants/index.js";
+import { loadingMessages, words } from "../constants/index.js";
 import Button from "../components/Button.jsx";
-import HeroExperience from "../components/HeroModels/HeroExperience.jsx";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Spline from "@splinetool/react-spline";
 import { useMediaQuery } from "react-responsive";
+import { useEffect, useRef, useState } from "react";
+
 const Hero = () => {
+  const [splineLoading, setSplineLoading] = useState(true);
   const isLargeScreen = useMediaQuery({ minWidth: 1024 }); // Tailwind lg breakpoint
   useGSAP(() => {
     gsap.fromTo(
@@ -26,6 +28,35 @@ const Hero = () => {
       }
     );
   });
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const messageIndexRef = useRef(0); // Tracks the current message index
+
+  useEffect(() => {
+    if (!splineLoading) return;
+
+    let charIndex = 0;
+    let currentText = loadingMessages[messageIndexRef.current];
+    let typingInterval;
+
+    const typeCharacter = () => {
+      if (charIndex <= currentText.length) {
+        setDisplayedText(currentText.slice(0, charIndex));
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          messageIndexRef.current =
+            (messageIndexRef.current + 1) % loadingMessages.length;
+          setCurrentMessageIndex(messageIndexRef.current); // trigger re-render for next effect
+        }, 2000);
+      }
+    };
+
+    typingInterval = setInterval(typeCharacter, 50);
+
+    return () => clearInterval(typingInterval);
+  }, [splineLoading, currentMessageIndex]); // currentMessageIndex ensures cycle continues
 
   return (
     <div
@@ -76,10 +107,33 @@ const Hero = () => {
       </header>
 
       {isLargeScreen && (
-        <figure className="w-full lg:w-[600px] h-[500px] relative overflow-hidden mt-10 lg:mt-0">
-          <Spline scene="https://prod.spline.design/3KPv-Qgou7PNHQjF/scene.splinecode" />
+        <figure className="w-full lg:w-[600px] h-[500px] relative overflow-hidden mt-10 lg:mt-0 rounded-xl shadow-lg">
+          {splineLoading && (
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black z-10 rounded-lg gap-4 px-4">
+              {/* Typing Text ABOVE the image */}
+              <p className="text-white text-center text-sm font-mono">
+                {displayedText}
+                <span className="animate-ping inline-block w-1 ml-1">|</span>
+              </p>
+
+              {/* Image */}
+              <img
+                src={"/images/Hero.png"}
+                alt="Fallback preview"
+                className="w-4/5 max-h-[80%] object-contain"
+              />
+            </div>
+          )}
+
+          <div className="absolute inset-0 z-10">
+            <Spline
+              scene="https://prod.spline.design/3KPv-Qgou7PNHQjF/scene.splinecode"
+              onLoad={() => setSplineLoading(false)}
+            />
+          </div>
+
           {/* Black overlay covering bottom 10% */}
-          <div className="absolute bottom-0 left-0 w-full h-[12%] bg-black pointer-events-none z-10" />
+          <div className="absolute bottom-0 left-0 w-full h-[12%] bg-black pointer-events-none z-20" />
         </figure>
       )}
     </div>

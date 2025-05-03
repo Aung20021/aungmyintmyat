@@ -3,6 +3,7 @@ import Spline from "@splinetool/react-spline";
 import { useMediaQuery } from "react-responsive";
 
 import TitleHeader from "../components/TitleHeader";
+import { loadingMessages } from "../constants";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -33,6 +34,36 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     // Optional: handle form submission
   };
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const messageIndexRef = useRef(0); // Tracks the current message index
+
+  useEffect(() => {
+    if (!splineLoading) return;
+
+    let charIndex = 0;
+    let currentText = loadingMessages[messageIndexRef.current];
+    let typingInterval;
+
+    const typeCharacter = () => {
+      if (charIndex <= currentText.length) {
+        setDisplayedText(currentText.slice(0, charIndex));
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          messageIndexRef.current =
+            (messageIndexRef.current + 1) % loadingMessages.length;
+          setCurrentMessageIndex(messageIndexRef.current); // trigger re-render for next effect
+        }, 2000);
+      }
+    };
+
+    typingInterval = setInterval(typeCharacter, 50);
+
+    return () => clearInterval(typingInterval);
+  }, [splineLoading, currentMessageIndex]); // currentMessageIndex ensures cycle continues
 
   return (
     <section id="contact" className="flex-center section-padding">
@@ -105,8 +136,21 @@ const Contact = () => {
             <div className="xl:col-span-7 w-full h-[500px] relative">
               {/* Loader Placeholder */}
               {splineLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black z-10 rounded-lg">
-                  <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-300 h-12 w-12"></div>
+                <div className="absolute inset-0 flex flex-col justify-center items-center bg-black z-10 rounded-lg gap-4 px-4">
+                  {/* Typing Text ABOVE the image */}
+                  <p className="text-white text-center text-sm font-mono">
+                    {displayedText}
+                    <span className="animate-ping inline-block w-1 ml-1">
+                      |
+                    </span>
+                  </p>
+
+                  {/* Image */}
+                  <img
+                    src={"/images/mail.png"}
+                    alt="Fallback preview"
+                    className="w-4/5 max-h-[80%] object-contain"
+                  />
                 </div>
               )}
 
