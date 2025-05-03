@@ -46,14 +46,6 @@ const ShowcaseSection = () => {
     updateGlow(x, y, index);
   });
 
-  const throttledTouchMove = throttle((e, index) => {
-    const touch = e.touches[0];
-    const rect = cardRefs.current[index].getBoundingClientRect();
-    const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    updateGlow(x, y, index);
-  });
-
   const resetGlow = (index) => {
     const card = cardRefs.current[index];
     const glow = glowRefs.current[index];
@@ -83,15 +75,14 @@ const ShowcaseSection = () => {
 
       <div className="flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={project.id}
             ref={(el) => (cardRefs.current[index] = el)}
             onMouseMove={(e) => throttledMouseMove(e, index)}
             onMouseEnter={() => updateGlow(150, 75, index)}
             onMouseLeave={() => resetGlow(index)}
-            onTouchStart={(e) => throttledTouchMove(e, index)}
-            onTouchMove={(e) => throttledTouchMove(e, index)}
-            onTouchEnd={() => resetGlow(index)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
             className="relative bg-gray-900 text-white rounded-2xl shadow-lg transition-all duration-300 cursor-pointer"
             style={{
               border: "2px solid transparent",
@@ -146,7 +137,7 @@ const ShowcaseSection = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

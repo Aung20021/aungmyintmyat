@@ -31,7 +31,7 @@ const Hero = () => {
     <div
       className={`flex flex-col lg:flex-row items-center justify-between
                 mb-20 px-5 md:px-10 xl:px-20
-                mt-[10vh] sm:mt-[14vh] md:mt-[18vh] lg:mt-[12vh] xl:mt-[14vh] 2xl:mt-[16vh]`}
+                mt-[14vh] sm:mt-[14vh] md:mt-[18vh] lg:mt-[14vh] xl:mt-[16vh] 2xl:mt-[16vh]`}
     >
       <header className="w-full lg:w-1/2 max-w-[700px]">
         <div className="flex flex-col gap-7">
