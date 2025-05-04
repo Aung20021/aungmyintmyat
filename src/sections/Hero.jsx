@@ -95,8 +95,7 @@ const Hero = () => {
             </h1>
           </div>
           <p className="text-white-50 md:text-xl text-base relative z-10 pointer-events-none">
-            Hi, I’m Aung Myint Myat, a developer based in Myanmar with a passion
-            for code.
+            Hi, I’m Aung Myint Myat, a developer with a passion for code.
           </p>
           <Button
             className="md:w-80 md:h-16 w-60 h-12"
