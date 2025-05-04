@@ -1,3 +1,14 @@
+import {
+  SiNextdotjs,
+  SiMongodb,
+  SiJavascript,
+  SiCloudinary,
+  SiGoogle,
+  SiOpenai,
+  SiStripe,
+} from "react-icons/si";
+import { RiShieldUserLine } from "react-icons/ri";
+
 const navLinks = [
   {
     name: "Projects",
@@ -10,10 +21,6 @@ const navLinks = [
   {
     name: "Skills",
     link: "#skills",
-  },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
   },
 ];
 
@@ -209,80 +216,92 @@ const socialImgs = [
     imgPath: "/images/linkedin.png",
   },
 ];
-const projects = [
-  {
-    id: 1,
-    title: "Project 1",
-    description:
-      "A short project description that highlights the main features and technologies used.",
-    image: "/images/project1.png",
-    technologies: [
-      { name: "React", icon: "⚛️" },
-      { name: "TailwindCSS", icon: "🌊" },
-      { name: "Node.js", icon: "🟢" },
-      { name: "MongoDB", icon: "🍃" },
-    ],
-    githubLink: "https://github.com/your-username/project1",
-    liveLink: "#",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description:
-      "This project uses advanced AI algorithms for machine learning tasks.",
-    image: "/images/project2.png",
-    technologies: [
-      { name: "Python", icon: "🐍" },
-      { name: "TensorFlow", icon: "🤖" },
-      { name: "Django", icon: "🐍" },
-    ],
-    githubLink: "https://github.com/your-username/project2",
-    liveLink: "#",
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    description: "An innovative solution in the field of IoT and automation.",
-    image: "/images/project3.png",
-    technologies: [
-      { name: "JavaScript", icon: "JS" },
-      { name: "IoT", icon: "📶" },
-    ],
-    githubLink: "https://github.com/your-username/project3",
-    liveLink: "#",
-  },
-  {
-    id: 4,
-    title: "Project 4",
-    description: "A game-changing app built with AR for real-time interaction.",
-    image: "/images/project4.png",
-    technologies: [
-      { name: "AR", icon: "🕶️" },
-      { name: "React", icon: "⚛️" },
-    ],
-    githubLink: "https://github.com/your-username/project4",
-    liveLink: "#",
-  },
-  {
-    id: 5,
-    title: "Project 4",
-    description: "A game-changing app built with AR for real-time interaction.",
-    image: "/images/project4.png",
-    technologies: [
-      { name: "AR", icon: "🕶️" },
-      { name: "React", icon: "⚛️" },
-    ],
-    githubLink: "https://github.com/your-username/project4",
-    liveLink: "#",
-  },
-  // Add more projects here
-];
 
 const loadingMessages = [
   "Preparing a 3D scene just for you...",
   "Hang tight — magic is happening behind the scenes.",
   "The 3D model of this image is loading...",
 ];
+
+const projects = [
+  {
+    id: 1,
+    title: "EduLearn Teacher App",
+    description:
+      "An educational platform where teachers can upload, edit, and manage courses. It features an integrated AI chatbot that helps auto-generate course content via the /createcourse cammand.",
+    image: "/images/edulearn.png",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Google Auth", icon: SiGoogle },
+      { name: "NextAuth", icon: RiShieldUserLine },
+      { name: "AI Chatbot", icon: SiOpenai },
+    ],
+    githubLink: "https://github.com/Aung20021/edulearn",
+    liveLink: "https://edulearn-snowy.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "EduLearn Student App",
+    description:
+      "An education platform where students can enroll in courses and learn. They can access paid courses with a subscription. An AI chatbot is available to assist students 24/7.",
+    image: "/images/edulearn-student.png", // Use the image path for the student app
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Google Auth", icon: SiGoogle },
+      { name: "NextAuth", icon: RiShieldUserLine },
+      { name: "AI Chatbot", icon: SiOpenai },
+      { name: "Stripe", icon: SiStripe }, // You can use a relevant icon for Stripe
+    ],
+    githubLink: "https://github.com/Aung20021/edulearn-student", // Replace with the correct GitHub link
+    liveLink: "https://edulearn-student.vercel.app/", // Replace with the live link
+  },
+  {
+    id: 3,
+    title: "E-Commerce Admin App",
+    description:
+      "An admin dashboard for managing products, categories, and viewing orders. Supports adding, editing, and deleting with a clean UI.",
+    image: "/images/ecommerce-admin.png", // Replace with your image path
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Google Auth", icon: SiGoogle },
+      { name: "NextAuth", icon: RiShieldUserLine },
+    ],
+    githubLink:
+      "https://github.com/Aung20021/aung-myint-myat-ecommerce-app-admin",
+    liveLink: "https://aung-myint-myat-ecommerce-app-admin.vercel.app",
+  },
+  {
+    id: 4,
+    title: "E-Commerce Customer App",
+    description:
+      "An eCommerce platform for customers to browse products and complete purchases securely using Stripe. Includes user authentication and responsive UI.",
+    image: "/images/ecommerce-customer.png", // Replace with your image path
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Google Auth", icon: SiGoogle },
+      { name: "NextAuth", icon: RiShieldUserLine },
+      { name: "Stripe", icon: SiStripe },
+    ],
+    githubLink:
+      "https://github.com/Aung20021/Aung-Myint-Myat-ecommerce-app-frontend",
+    liveLink: "https://aung-myint-myat-ecommerce-app-frontend.vercel.app/",
+  },
+
+  // Add more projects here
+];
+
 export {
   words,
   abilities,
@@ -293,6 +312,6 @@ export {
   techStackIcons,
   techStackImgs,
   navLinks,
-  projects,
   loadingMessages,
+  projects,
 };

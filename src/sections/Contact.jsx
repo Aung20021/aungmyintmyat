@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Spline from "@splinetool/react-spline";
 import { useMediaQuery } from "react-responsive";
-
+import emailjs from "@emailjs/browser";
 import TitleHeader from "../components/TitleHeader";
 import { loadingMessages } from "../constants";
 
@@ -32,7 +32,24 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    // Optional: handle form submission
+    e.preventDefault();
+    setLoading(true); // Show loading state
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      // Reset form and stop loading
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error); // Optional: show toast
+    } finally {
+      setLoading(false); // Always stop loading, even on error
+    }
   };
 
   const [displayedText, setDisplayedText] = useState("");
@@ -117,7 +134,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit">
+                <button type="submit" disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">

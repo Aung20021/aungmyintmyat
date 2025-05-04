@@ -8,12 +8,11 @@ import {
   FaPhp,
   FaLaravel,
   FaDatabase,
-  FaDocker,
-  FaBrain,
 } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
-import GlowCard from "../components/GlowCard"; // Make sure the path is correct
+import { SiTailwindcss, SiNextdotjs, SiMongodb, SiVite } from "react-icons/si"; // Added necessary icons
+import GlowCard from "../components/GlowCard";
 import TitleHeader from "../components/TitleHeader";
+
 const skills = [
   {
     name: "HTML",
@@ -33,16 +32,11 @@ const skills = [
     level: 85,
     color: "from-yellow-300 to-yellow-500",
   },
-  {
-    name: "Python",
-    icon: <FaPython size={28} />,
-    level: 80,
-    color: "from-blue-300 to-blue-500",
-  },
+
   {
     name: "React",
     icon: <FaReact size={28} />,
-    level: 85,
+    level: 70,
     color: "from-cyan-400 to-cyan-600",
   },
   {
@@ -76,16 +70,28 @@ const skills = [
     color: "from-gray-400 to-gray-600",
   },
   {
-    name: "Docker",
-    icon: <FaDocker size={28} />,
-    level: 40,
-    color: "from-sky-400 to-blue-600",
+    name: "Next.js",
+    icon: <SiNextdotjs size={28} />,
+    level: 80,
+    color: "from-gray-800 to-gray-600",
   },
   {
-    name: "AI/ML",
-    icon: <FaBrain size={28} />,
-    level: 40,
-    color: "from-pink-500 to-red-600",
+    name: "MongoDB",
+    icon: <SiMongodb size={28} />,
+    level: 75,
+    color: "from-green-300 to-green-500",
+  },
+  {
+    name: "Vite",
+    icon: <SiVite size={28} />,
+    level: 70,
+    color: "from-purple-300 to-yellow-400",
+  },
+  {
+    name: "Python",
+    icon: <FaPython size={28} />,
+    level: 50,
+    color: "from-blue-300 to-blue-500",
   },
 ];
 
