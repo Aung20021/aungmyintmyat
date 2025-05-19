@@ -106,7 +106,7 @@ const Hero = () => {
       </header>
 
       {isLargeScreen && (
-        <figure className="w-full lg:w-[600px] h-[500px] relative overflow-hidden mt-10 lg:mt-0 rounded-xl shadow-lg">
+        <figure className="w-full lg:w-[600px] h-[500px] relative overflow-hidden  mt-10 lg:mt-0 rounded-xl shadow-lg ">
           {splineLoading && (
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black z-10 rounded-lg gap-4 px-4">
               {/* Typing Text ABOVE the image */}
