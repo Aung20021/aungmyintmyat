@@ -147,7 +147,7 @@ const expCards = [
       "I apply strong problem-solving skills and attention to detail to deliver clean, efficient solutions. Through my ongoing advancement in software development, I continuously bring fresh perspectives and reliable results to projects focused on innovation and quality.",
     imgPath: "/images/lithanedu.png",
     logoPath: "/images/lithanlogo.png",
-    title: "Pearson BTEC Level 4 & 5",
+    title: "Pearson BTEC Level 5",
     date: "2025 - Present",
     responsibilities: [
       "Pursuing Pearson BTEC Level 4 & 5 Higher National Diploma in Computing.",
@@ -297,6 +297,22 @@ const projects = [
     githubLink:
       "https://github.com/Aung20021/Aung-Myint-Myat-ecommerce-app-frontend",
     liveLink: "https://aung-myint-myat-ecommerce-app-frontend.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "JumpStart Ecommerce Store",
+    description:
+      "A fashion ecpmmerce store with a clean UI. Includes user authentication and responsive UI. Admin can add, edit, and delete products. Admin can see revenue reports and generate product descriptions with AI.",
+    image: "/images/edulearn.png",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Stripe", icon: SiStripe },
+    ],
+    githubLink: "https://github.com/Aung20021/Jumpstart-E-commerce-Store",
+    liveLink: "https://jumpstart-e-commerce-store.vercel.app/",
   },
 
   // Add more projects here
