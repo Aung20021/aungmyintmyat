@@ -229,7 +229,7 @@ const projects = [
     title: "JumpStart Ecommerce Store",
     description:
       "A fashion ecpmmerce store with a clean UI. Includes user authentication and responsive UI. Admin can add, edit, and delete products. Admin can see revenue reports and generate product descriptions with AI.",
-    image: "/images/edulearn.png",
+    image: "/images/jumpstart.png",
     technologies: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "JavaScript", icon: SiJavascript },
