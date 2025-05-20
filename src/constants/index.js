@@ -226,6 +226,23 @@ const loadingMessages = [
 const projects = [
   {
     id: 1,
+    title: "JumpStart Ecommerce Store",
+    description:
+      "A fashion ecpmmerce store with a clean UI. Includes user authentication and responsive UI. Admin can add, edit, and delete products. Admin can see revenue reports and generate product descriptions with AI.",
+    image: "/images/edulearn.png",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Cloudinary", icon: SiCloudinary },
+      { name: "Stripe", icon: SiStripe },
+    ],
+    githubLink: "https://github.com/Aung20021/Jumpstart-E-commerce-Store",
+    liveLink: "https://jumpstart-e-commerce-store.vercel.app/",
+  },
+
+  {
+    id: 2,
     title: "EduLearn Teacher App",
     description:
       "An educational platform where teachers can upload, edit, and manage courses. It features an integrated AI chatbot that helps auto-generate course content via the /createcourse cammand.",
@@ -243,7 +260,7 @@ const projects = [
     liveLink: "https://edulearn-snowy.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "EduLearn Student App",
     description:
       "An education platform where students can enroll in courses and learn. They can access paid courses with a subscription. An AI chatbot is available to assist students 24/7.",
@@ -262,7 +279,7 @@ const projects = [
     liveLink: "https://edulearn-student.vercel.app/", // Replace with the live link
   },
   {
-    id: 3,
+    id: 4,
     title: "E-Commerce Admin App",
     description:
       "An admin dashboard for managing products, categories, and viewing orders. Supports adding, editing, and deleting with a clean UI.",
@@ -280,7 +297,7 @@ const projects = [
     liveLink: "https://aung-myint-myat-ecommerce-app-admin.vercel.app",
   },
   {
-    id: 4,
+    id: 5,
     title: "E-Commerce Customer App",
     description:
       "An eCommerce platform for customers to browse products and complete purchases securely using Stripe. Includes user authentication and responsive UI.",
@@ -297,22 +314,6 @@ const projects = [
     githubLink:
       "https://github.com/Aung20021/Aung-Myint-Myat-ecommerce-app-frontend",
     liveLink: "https://aung-myint-myat-ecommerce-app-frontend.vercel.app/",
-  },
-  {
-    id: 5,
-    title: "JumpStart Ecommerce Store",
-    description:
-      "A fashion ecpmmerce store with a clean UI. Includes user authentication and responsive UI. Admin can add, edit, and delete products. Admin can see revenue reports and generate product descriptions with AI.",
-    image: "/images/edulearn.png",
-    technologies: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "MongoDB", icon: SiMongodb },
-      { name: "Cloudinary", icon: SiCloudinary },
-      { name: "Stripe", icon: SiStripe },
-    ],
-    githubLink: "https://github.com/Aung20021/Jumpstart-E-commerce-Store",
-    liveLink: "https://jumpstart-e-commerce-store.vercel.app/",
   },
 
   // Add more projects here
